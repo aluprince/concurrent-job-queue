@@ -14,9 +14,8 @@ func Worker(id int, jobs <-chan producer.Job, workers *sync.WaitGroup) {
 	for job := range jobs {
 		//Simulate Work
 		fmt.Printf("Worker #%d started job #%d\n", id, job.ID)
-		fmt.Printf(">>Processing Worker #%d and job #%d\n", id, job.ID)
 
-		time.Sleep(10 * time.Second)
+		time.Sleep(2 * time.Second)
 
 		fmt.Printf("Worker #%d finished job #%d\n", id, job.ID)
 

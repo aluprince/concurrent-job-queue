@@ -1,7 +1,7 @@
 package producer
 
 import (
-	"log"
+	//"log"
 	"time"
 )
 
@@ -15,7 +15,7 @@ type Job struct {
 
 // Generating Job
 func GenerateJobs(NumberOfJobs int, DurationSec int) []Job {
-	log.Printf(">>Producing Jobs")
+	//log.Printf(">>Producing Jobs")
 
 	duration := time.Duration(DurationSec) * time.Microsecond
 	jobList := make([]Job, 0, NumberOfJobs)
