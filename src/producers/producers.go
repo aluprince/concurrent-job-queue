@@ -3,25 +3,33 @@ package producer
 import (
 	//"log"
 	"time"
+	"math/rand/v2"
 )
 
+const failRate int = 20
 
 
 type Job struct {
     ID       int
     Duration time.Duration
+	Fail bool
+}
+
+type JobResult struct {
+	JobID int
+	Success bool
 }
 
 
 // Generating Job
 func GenerateJobs(NumberOfJobs int, DurationSec int) []Job {
-	//log.Printf(">>Producing Jobs")
-
+	
 	duration := time.Duration(DurationSec) * time.Microsecond
 	jobList := make([]Job, 0, NumberOfJobs)
 
 	for index := range NumberOfJobs{
-		jobs := Job{index, duration}
+		randomBoolValue := rand.IntN(100) < failRate
+		jobs := Job{index, duration, randomBoolValue}
 		jobList = append(jobList, jobs)	
 	}
 	
