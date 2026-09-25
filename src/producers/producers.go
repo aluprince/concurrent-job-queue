@@ -18,6 +18,7 @@ type Job struct {
 type JobResult struct {
 	JobID int
 	Success bool
+	Retries int
 }
 
 
